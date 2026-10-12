@@ -97,11 +97,11 @@ bb_err_t ux_blorb_init(char *filename)
 		else {
 			/* Determine default Blorb file name. */
 			mystring = malloc(MAX(len1, len2) * sizeof(char) + 1);
-			memcpy(mystring, filename, MAX(len1, len2) * sizeof(char));
+			strcpy(mystring, filename);
 			p = strrchr(mystring, '.');
 			if (p != NULL)
 				*p = '\0';
-			strncat(mystring, EXT_BLORB, len1);
+			strcat(mystring, EXT_BLORB);
 		}
 
 		/* Check if foo.blb is there. */

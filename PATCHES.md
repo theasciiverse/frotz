@@ -8,8 +8,18 @@ changes below.
 
 ## Code
 
-None. Frotz is built exactly as released: the curses interface, with sound
-off (`SOUND_TYPE=none`; only a few Infocom games used sound).
+Frotz is built from the release with the curses interface and sound off
+(`SOUND_TYPE=none`; only a few Infocom games used sound), plus one fix:
+
+- `src/curses/ux_blorb.c`: when a story is a bare Z-code file, Frotz builds
+  the name of a companion Blorb file by copying the story's file name with
+  `memcpy` of the longer, extended length, reading past the end of the name
+  and leaving the copy without its terminating zero. With a long enough path
+  this corrupted the heap, and the static musl build stopped with "Illegal
+  instruction" before the first screen (found with Curses, installed by av
+  under ~/.local/share/asciiverse/adventures/curses/; AddressSanitizer
+  reports a heap-buffer-overflow at line 100). Now a plain `strcpy` and
+  `strcat`. Still present on upstream master as of 2026-10-12.
 
 ## Packaging (new files)
 
