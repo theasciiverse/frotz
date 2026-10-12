@@ -40,3 +40,7 @@ src/test/*rec
 *.scr
 *.rec
 *.pcf
+
+# Asciiverse packaging scratch
+/stage/
+/dist/

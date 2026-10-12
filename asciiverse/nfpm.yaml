@@ -1,0 +1,40 @@
+# System packages (.deb, .rpm, .apk, Arch) for Frotz, built by nfpm from the
+# same static binary as the av archive. The release workflow sets VERSION,
+# RELEASE (our packaging release) and ARCH (amd64 or arm64).
+#
+# No .desktop file on purpose: av is the one place titles are started from,
+# so Asciiverse packages never add menu entries (asciiverse/CLAUDE.md).
+#
+# Named frotz-asciiverse so it never collides with a distribution's own
+# frotz package; it installs the same frotz command and conflicts with it.
+name: frotz-asciiverse
+arch: ${ARCH}
+platform: linux
+version: ${VERSION}
+release: ${RELEASE}
+section: games
+priority: optional
+maintainer: Asciiverse <packages@asciiverse.sh>
+vendor: Asciiverse
+homepage: https://github.com/theasciiverse/frotz
+license: GPL-2.0-or-later
+conflicts: [frotz]
+provides: [frotz]
+description: |
+  Interpreter for Z-machine interactive fiction, in the terminal.
+  Plays Infocom's games, Zork among them, and most classic text adventures.
+  A static build of Frotz by David Griffith and others, packaged by
+  Asciiverse.
+contents:
+  - src: frotz
+    dst: /usr/bin/frotz
+    file_info: { mode: 0755 }
+  - src: doc/frotz.6
+    dst: /usr/share/man/man6/frotz.6
+    file_info: { mode: 0644 }
+  - src: COPYING
+    dst: /usr/share/doc/frotz-asciiverse/copyright
+    file_info: { mode: 0644 }
+  - src: README.md
+    dst: /usr/share/doc/frotz-asciiverse/README.md
+    file_info: { mode: 0644 }
