@@ -1,3 +1,16 @@
+> **Play it with Asciiverse.** With [av](https://asciiverse.sh), the Asciiverse
+> client:
+>
+> ```
+> av install frotz
+> av play frotz
+> ```
+>
+> Or download the archive for your system from this repository's Releases,
+> unpack it and run `./frotz` (`frotz.exe` on Windows).
+>
+> The original README follows.
+
 # FROTZ V2.55
 An interpreter for all Infocom and other Z-machine games.
 Complies with the Z-Machine Standard version 1.1.

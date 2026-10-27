@@ -35,3 +35,9 @@ Frotz is built from the release with the curses interface and sound off
 
 - Windows: Frotz's curses interface is for Unix terminals.
 - dfrotz and sfrotz (the dumb and SDL interfaces).
+
+## Ours
+
+- **How to play it, at the top of README.md.** A short note on installing and
+  starting it with av, or from a release archive; the original text follows
+  unchanged.
